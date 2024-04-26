@@ -1,6 +1,6 @@
-package players.infrastructure.rest.request;
+package players.application.create;
 
-public class FootballPlayer {
+public class FootballPlayerCommand {
 
     private String name;
     private int age;
@@ -8,6 +8,12 @@ public class FootballPlayer {
 
     public String getName() {
         return name;
+    }
+
+    public FootballPlayerCommand(String name, int age, String team){
+        this.name = name;
+        this.age = age;
+        this.team = team;
     }
 
     public void setName(String name) {
@@ -29,4 +35,6 @@ public class FootballPlayer {
     public void setTeam(String team) {
         this.team = team;
     }
+
+
 }
