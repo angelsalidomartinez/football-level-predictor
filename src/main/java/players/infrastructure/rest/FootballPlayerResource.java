@@ -21,7 +21,7 @@ public class FootballPlayerResource {
     }
 
     public String add(FootballPlayer footballPlayer){
-        return null;
+        return "test";
     }
 
 }
