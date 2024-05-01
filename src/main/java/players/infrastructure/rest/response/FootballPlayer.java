@@ -10,6 +10,13 @@ public class FootballPlayer {
     private int numberOfGoals;
     private int age;
 
+    public FootballPlayer(UUID uuid, String name, String team, int age) {
+        this.uuid = uuid;
+        this.name = name;
+        this.team = team;
+        this.age = age;
+    }
+
     public UUID getUuid() {
         return uuid;
     }
