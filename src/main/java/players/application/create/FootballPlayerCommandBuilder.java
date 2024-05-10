@@ -1,5 +1,8 @@
 package players.application.create;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class FootballPlayerCommandBuilder {
     private String name;
     private int age;

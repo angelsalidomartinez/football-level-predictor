@@ -1,7 +1,18 @@
 package players.domain;
 
+import java.util.UUID;
+
 public class FootballPlayer {
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    private UUID uuid;
     private String name;
 
     public FootballPlayer(String name, int age, String team) {

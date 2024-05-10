@@ -26,7 +26,10 @@ public class FootballPlayerDTO {
     private int age;
     private String team;
 
-
-
-
+    public FootballPlayerDTO(UUID uuid, String name, int age, String team) {
+        this.uuid = uuid;
+        this.name = name;
+        this.age = age;
+        this.team = team;
+    }
 }

@@ -1,9 +1,13 @@
 package players.infrastructure.rest.request;
 
-public class FootballPlayer {
+import jakarta.ws.rs.QueryParam;
 
+public class FootballPlayer {
+    @QueryParam("name")
     private String name;
+    @QueryParam("age")
     private int age;
+    @QueryParam("team")
     private String team;
 
     public String getName() {

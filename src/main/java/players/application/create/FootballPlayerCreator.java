@@ -1,13 +1,17 @@
 package players.application.create;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import players.application.assembler.FootballPlayerAssembler;
 import players.domain.FootballPlayer;
 import players.domain.FootballPlayerRepository;
-
+@ApplicationScoped
 public class FootballPlayerCreator {
 
     @Inject
     FootballPlayerRepository footballPlayerRepository;
+    @Inject
+    FootballPlayerAssembler footballPlayerAssembler;
 
     public FootballPlayerDTO create(FootballPlayerCommand footballPlayerCommand){
 
@@ -16,7 +20,8 @@ public class FootballPlayerCreator {
         }
 
         FootballPlayer footballPlayer = new FootballPlayer(footballPlayerCommand.getName(),footballPlayerCommand.getAge(),footballPlayerCommand.getTeam());
-        return footballPlayerRepository.save(footballPlayer);
+
+        return footballPlayerAssembler.toDTO(footballPlayerRepository.save(footballPlayer));
     }
 
 }

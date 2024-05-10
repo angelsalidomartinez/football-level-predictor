@@ -1,17 +1,16 @@
 package players.infrastructure.rest;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import players.application.create.FootballPlayerCommand;
 import players.application.create.FootballPlayerCommandBuilder;
 import players.application.create.FootballPlayerCreator;
 import players.application.create.FootballPlayerDTO;
 import players.infrastructure.rest.request.FootballPlayer;
 
-import javax.inject.Inject;
+import javax.print.attribute.standard.Media;
+
 
 @Path("/footballPlayer")
 public class FootballPlayerResource {
@@ -22,12 +21,17 @@ public class FootballPlayerResource {
     FootballPlayerCommandBuilder footballPlayerCommandBuilder;
 
     @GET
+    @Path("/ping")
     @Produces(MediaType.TEXT_PLAIN)
     public String ping(){
         return "pong";
     }
 
-    public players.infrastructure.rest.response.FootballPlayer add(FootballPlayer footballPlayer){
+    @POST
+    @Path("/add")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public players.infrastructure.rest.response.FootballPlayer add(@BeanParam FootballPlayer footballPlayer){
         FootballPlayerCommand command = footballPlayerCommandBuilder.setAge(footballPlayer.getAge())
                 .setName(footballPlayer.getName())
                 .setTeam(footballPlayer.getTeam())
